@@ -26,7 +26,7 @@ const BlogPage = (props: Props) => {
         name: namaInput,
       })
       .then((response) => {
-        localStorage.setItem("tokenku", response.data.token);
+        localStorage.setItem("tokenku", "42b15e35-85ad-4b2f-9130-c9551de21283");
         localStorage.setItem("namaku", namaInput);
         navigate("/page1");
       })
