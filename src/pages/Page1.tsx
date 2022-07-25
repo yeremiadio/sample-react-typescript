@@ -35,9 +35,13 @@ const Page1 = (props: Props) => {
 
   return (
     <div>
-      {dataDariBackend.map((item) => (
-        <Card key={item.id} title={item.title} content={item.content} />
-      ))}
+      {dataDariBackend.length === 0 ? (
+        <div>Data kosong</div>
+      ) : (
+        dataDariBackend.map((item) => (
+          <Card key={item.id} title={item.title} content={item.content} />
+        ))
+      )}
     </div>
   );
 };
