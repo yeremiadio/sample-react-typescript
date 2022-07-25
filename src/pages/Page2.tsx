@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import MainLayout from "../layouts/MainLayout";
 
 type Props = {};
 
@@ -32,7 +33,7 @@ const Page2 = (props: Props) => {
       )
       .then(() => {
         alert("sukses boss");
-        navigate("page1");
+        navigate("/page1");
       })
       .catch(() => {
         alert("error");
@@ -40,7 +41,7 @@ const Page2 = (props: Props) => {
   }, [titleInput, contentInput, savedLocalStorageTokenku]);
 
   return (
-    <div>
+    <MainLayout>
       <input
         type={"text"}
         value={titleInput}
@@ -59,7 +60,7 @@ const Page2 = (props: Props) => {
       >
         Create Blog
       </button>
-    </div>
+    </MainLayout>
   );
 };
 

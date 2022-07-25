@@ -53,6 +53,11 @@ const BlogPage = (props: Props) => {
       >
         Page ke 1
       </button>
+      <Link to={"/page2"}>
+        <button style={{ background: "red", border: "none", color: "white" }}>
+          Page ke 2
+        </button>
+      </Link>
     </div>
   );
 };

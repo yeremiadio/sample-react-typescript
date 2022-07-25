@@ -1,12 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Card from "../components/Card";
 
 type Props = {};
 
 const Page1 = (props: Props) => {
   const navigate = useNavigate();
-  const [dataDariBackend, setDatadariBackend] = useState<[]>([]);
+  const [dataDariBackend, setDatadariBackend] = useState<
+    Array<{ id: number; title: string; content: string }>
+  >([]);
   const savedLocalStorageTokenku = localStorage.getItem("tokenku");
   useEffect(() => {
     if (!savedLocalStorageTokenku) {
@@ -30,7 +33,13 @@ const Page1 = (props: Props) => {
     }
   }, [savedLocalStorageTokenku]);
 
-  return <div>{JSON.stringify(dataDariBackend)}</div>;
+  return (
+    <div>
+      {dataDariBackend.map((item) => (
+        <Card key={item.id} title={item.title} content={item.content} />
+      ))}
+    </div>
+  );
 };
 
 export default Page1;
